@@ -1,0 +1,2 @@
+# huginn
+Observability Database
