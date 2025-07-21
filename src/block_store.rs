@@ -1,4 +1,12 @@
+use std::collections::HashMap;
 use crate::block::{ArrayBlock, Block, MutableBlock};
+use crate::item_id::ItemId;
+
+pub struct BlockStoreItem {
+    id: ItemId,
+    tags: HashMap<String, String>,
+    blocks: MemoryBlockStore,
+}
 
 /// Memory-based block store for time series data
 pub struct MemoryBlockStore {
