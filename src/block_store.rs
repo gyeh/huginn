@@ -3,9 +3,9 @@ use crate::block::{ArrayBlock, Block, MutableBlock};
 use crate::item_id::ItemId;
 
 pub struct BlockStoreItem {
-    id: ItemId,
-    tags: HashMap<String, String>,
-    blocks: MemoryBlockStore,
+    pub id: ItemId,
+    pub tags: HashMap<String, String>,
+    pub blocks: MemoryBlockStore,
 }
 
 /// Memory-based block store for time series data

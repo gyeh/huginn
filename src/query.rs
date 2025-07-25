@@ -7,7 +7,7 @@ use crate::block::ArrayBlock;
 
 /// Wrapper for regex pattern matching with caching
 #[derive(Debug, Clone, PartialEq, Eq)]
-struct PatternMatcher {
+pub struct PatternMatcher {
     pattern: RegexWrapper,
     ignore_case: bool,
 }

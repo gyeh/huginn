@@ -1,8 +1,6 @@
-use std::cmp::Ordering;
-
 /// Represents a key/value pair and its associated count. The count is the number of items that
 /// are marked with the tag.
-#[derive(Debug, Clone, PartialEq, Eq, PartialOrd, Ord)]
+#[derive(Debug, Clone, PartialEq, Eq, PartialOrd, Ord, Hash)]
 pub struct Tag {
     /// Key for the tag
     pub key: String,
