@@ -1,12 +1,7 @@
 use std::cmp;
 use std::fmt;
 use std::hash::{Hash, Hasher};
-
-#[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
-pub enum DsType {
-    Rate,
-    Gauge,
-}
+use crate::ds_type::DsType;
 
 pub type BinaryOp = fn(f64, f64) -> f64;
 
