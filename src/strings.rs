@@ -4,7 +4,6 @@ use lazy_static::lazy_static;
 use regex::Regex;
 use std::collections::HashMap;
 use std::fmt::Write;
-use std::num::ParseIntError;
 
 /// Error type for string parsing operations
 #[derive(Debug, thiserror::Error)]

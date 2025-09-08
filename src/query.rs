@@ -2,8 +2,6 @@ use regex::Regex;
 use std::collections::{HashMap, HashSet};
 use std::fmt::{Debug, Formatter};
 use std::hash::{Hash, Hasher};
-use std::sync::Arc;
-use crate::block::ArrayBlock;
 
 /// Wrapper for regex pattern matching with caching
 #[derive(Debug, Clone, PartialEq, Eq)]

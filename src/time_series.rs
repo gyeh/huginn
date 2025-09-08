@@ -2,11 +2,13 @@ use std::collections::HashMap;
 use crate::item_id::ItemId;
 use crate::time_seq::{BinaryOpTimeSeq, OffsetTimeSeq, TimeSeq, UnaryOpTimeSeq};
 
-// TimeSeries module
 pub mod time_series {
+    use std::collections::HashMap;
+    use crate::ds_type::DsType;
+    use crate::item_id::ItemId;
     use crate::query::Query;
-    use crate::time_seq::{DsType, FunctionTimeSeq};
-    use super::*;
+    use crate::time_seq::{FunctionTimeSeq, TimeSeq};
+    use crate::time_series::{BasicTimeSeries, LazyTimeSeries, TimeSeries};
 
     lazy_static::lazy_static! {
         static ref NO_DATA_TAGS: HashMap<String, String> = {
@@ -78,7 +80,6 @@ pub mod time_series {
     }
 }
 
-// Main TimeSeries trait
 pub trait TimeSeries {
     fn label(&self) -> &str;
     fn data(&self) -> &dyn TimeSeq;
@@ -228,8 +229,10 @@ impl TimeSeries for LazyTimeSeries {
 
 #[cfg(test)]
 mod tests {
-    use crate::time_seq::{ArrayTimeSeq, DsType};
-    use super::*;
+    use std::collections::HashMap;
+    use crate::ds_type::DsType;
+    use crate::time_seq::ArrayTimeSeq;
+    use crate::time_series::time_series;
 
     #[test]
     fn test_no_data_series() {

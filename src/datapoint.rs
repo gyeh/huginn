@@ -1,6 +1,7 @@
 use std::collections::HashMap;
+use crate::ds_type::DsType;
 use crate::item_id::ItemId;
-use crate::time_seq::{DsType, TimeSeq};
+use crate::time_seq::{TimeSeq};
 use crate::time_series::TimeSeries;
 
 /// Time series with a single value.
@@ -60,8 +61,8 @@ impl Datapoint {
 }
 
 impl TimeSeries for Datapoint {
-    fn label(&self) -> String {
-        self.tags.iter()
+    fn label(&self) -> &str {
+        &self.tags.iter()
             .map(|(k, v)| format!("{}={}", k, v))
             .collect::<Vec<_>>()
             .join(",")

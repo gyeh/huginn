@@ -281,6 +281,12 @@ pub struct ConstantBlock {
     pub value: f64,
 }
 
+impl ConstantBlock {
+    pub fn new(start: i64, size: usize, value: f64) -> Self {
+        ConstantBlock {start, size, value}
+    }
+}
+
 impl Block for ConstantBlock {
     fn start(&self) -> i64 { self.start }
     fn size(&self) -> usize { self.size }

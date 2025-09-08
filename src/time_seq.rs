@@ -29,6 +29,18 @@ pub trait TimeSeq {
         }
     }
 
+    // fn foreach(&self, s: i64, e: i64, f: &mut dyn FnMut(i64, f64))
+    // {
+    //     assert!(s <= e, "start must be <= end");
+    //     let step = self.step();
+    //     let end = e / step * step;
+    //     let mut t = s / step * step;
+    //     while t < end {
+    //         f(t, self.apply(t));
+    //         t += step;
+    //     }
+    // }
+
     fn bounded(&self, s: i64, e: i64) -> ArrayTimeSeq {
         assert!(s <= e, "start must be <= end");
         let step = self.step();
@@ -47,7 +59,7 @@ pub trait TimeSeq {
     fn clone_box(&self) -> Box<dyn TimeSeq>;
 }
 
-#[derive(Clone)]
+#[derive(Clone, Debug)]
 pub struct ArrayTimeSeq {
     pub ds_type: DsType,
     pub start: i64,
